@@ -1,0 +1,388 @@
+{
+  "tabu_kelimeleri": [
+    {
+      "anahtar": "Astronot",
+      "yasakli": ["Uzay", "Ay", "Kıyafet", "Roket", "NASA"]
+    },
+    {
+      "anahtar": "Labirent",
+      "yasakli": ["Kaybolmak", "Çıkış", "Duvar", "Yol", "Minotor"]
+    },
+    {
+      "anahtar": "Kangren",
+      "yasakli": ["Doku", "Ameliyat", "Enfeksiyon", "Kesmek", "Bacak"]
+    },
+    {
+      "anahtar": "Kukla",
+      "yasakli": ["İp", "Eller", "Tiyatro", "Oynatmak", "Pinokyo"]
+    },
+    {
+      "anahtar": "Parşömen",
+      "yasakli": ["Kağıt", "Eski", "Yazı", "Deri", "Tarihi"]
+    },
+    {
+      "anahtar": "Sihirbaz",
+      "yasakli": ["Şapka", "Tavşan", "Hile", "Kart", "Asa"]
+    },
+    {
+      "anahtar": "Ankastre",
+      "yasakli": ["Mutfak", "Dolap", "Fırın", "Tasarruf", "Gömme"]
+    },
+    {
+      "anahtar": "Morse",
+      "yasakli": ["Kod", "Telsiz", "Nokta", "Çizgi", "SOS"]
+    },
+    {
+      "anahtar": "Kule",
+      "yasakli": ["Yüksek", "İnşa", "Pisa", "Kale", "Gözlem"]
+    },
+    {
+      "anahtar": "Paratoner",
+      "yasakli": ["Yıldırım", "Çatı", "Koruma", "Demir", "Elektrik"]
+    },
+    {
+      "anahtar": "Tornavida",
+      "yasakli": ["Vida", "Sıkıştırmak", "Alet", "Uç", "Döndürmek"]
+    },
+    {
+      "anahtar": "Krep",
+      "yasakli": ["Gözleme", "Hamur", "Tava", "Kahvaltı", "Sarmak"]
+    },
+    {
+      "anahtar": "Sarkaç",
+      "yasakli": ["Sallanmak", "Saat", "Fizik", "Salıncak", "Hareket"]
+    },
+    {
+      "anahtar": "Akvaryum",
+      "yasakli": ["Balık", "Cam", "Su", "Evcil", "Kum"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Köstek",
+      "yasakli": ["Saat", "Zincir", "Takmak", "Kol", "Aksesuar"]
+    },
+    {
+      "anahtar": "Kunduz",
+      "yasakli": ["Baraj", "Diş", "Ağaç", "Nehir", "Kemirme"]
+    },
+    {
+      "anahtar": "Fosfor",
+      "yasakli": ["Işık", "Yanmak", "Kut", "Çöp", "Kibrit"]
+    },
+    {
+      "anahtar": "Periskop",
+      "yasakli": ["Denizaltı", "Bakmak", "Dürbün", "Görmek", "Uzatma"]
+    },
+    {
+      "anahtar": "Mangal",
+      "yasakli": ["Et", "Kömür", "Izgara", "Barbekü", "Ateş"]
+    },
+    {
+      "anahtar": "Akrobat",
+      "yasakli": ["Sirk", "Cambaz", "Takla", "Esnek", "Havada"]
+    },
+    {
+      "anahtar": "Kramp",
+      "yasakli": ["Kas", "Spor", "Sıkışma", "Ağrı", "Su"]
+    },
+    {
+      "anahtar": "Gerdanlık",
+      "yasakli": ["Kolye", "Boyun", "Mücevher", "Altın", "İnci"]
+    },
+    {
+      "anahtar": "Raptiye",
+      "yasakli": ["Tutmak", "Pano", "Sabitlemek", "Küçük", "Delmek"]
+    },
+    {
+      "anahtar": "Yunus",
+      "yasakli": ["Balık", "Memeli", "Deniz", "Atlama", "Akvaryum"]
+    },
+    {
+      "anahtar": "Şaryo",
+      "yasakli": ["Araba", "Tekerlek", "Alt", "Sistem", "Kayış"]
+    },
+    {
+      "anahtar": "Soba",
+      "yasakli": ["Isı", "Odun", "Baca", "Yanmak", "Kömür"]
+    },
+    {
+      "anahtar": "Miğfer",
+      "yasakli": ["Kafa", "Koruma", "Spor", "Savaş", "Kask"]
+    },
+    {
+      "anahtar": "Telesiyej",
+      "yasakli": ["Kayak", "Dağ", "Yukarı", "Koltuk", "Taşımak"]
+    },
+    {
+      "anahtar": "Gazete",
+      "yasakli": ["Haber", "Kağıt", "Oku", "Günlük", "Manşet"]
+    },
+    {
+      "anahtar": "Yelpaze",
+      "yasakli": ["Sıcak", "Serin", "El", "Açmak", "Japon"]
+    },
+    {
+      "anahtar": "Mercimek",
+      "yasakli": ["Çorba", "Bakliyat", "Taneli", "Yeşil", "Kırmızı"]
+    },
+    {
+      "anahtar": "Konsol",
+      "yasakli": ["Oyun", "Playstation", "Kumanda", "Televizyon", "Xbox"]
+    },
+    {
+      "anahtar": "Şelale",
+      "yasakli": ["Su", "Yüksek", "Düşmek", "Doğa", "Niagara"]
+    },
+    {
+      "anahtar": "Krampon",
+      "yasakli": ["Futbol", "Ayakkabı", "Dik", "Spor", "Saha"]
+    },
+    {
+      "anahtar": "Semaver",
+      "yasakli": ["Çay", "Kaynatmak", "Rus", "Isıtma", "Baca"]
+    },
+    {
+      "anahtar": "Fesleğen",
+      "yasakli": ["Bitki", "Koku", "Yemek", "Salata", "Tohum"]
+    },
+    {
+      "anahtar": "İstiridye",
+      "yasakli": ["Deniz", "Kabuk", "İnci", "Açmak", "Yemek"]
+    },
+    {
+      "anahtar": "Zımpara",
+      "yasakli": ["Pürüz", "Cila", "Kağıt", "Tahta", "Silmek"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Sürahi",
+      "yasakli": ["Su", "İçmek", "Cam", "Bardak", "Doldurmak"]
+    },
+    {
+      "anahtar": "Pervane",
+      "yasakli": ["Dönmek", "Rüzgar", "Helikopter", "Uçak", "Kanat"]
+    },
+    {
+      "anahtar": "Mandal",
+      "yasakli": ["Çamaşır", "Tutmak", "Askı", "Kurutmak", "Sıkıştırmak"]
+    },
+    {
+      "anahtar": "Fıskiye",
+      "yasakli": ["Su", "Bahçe", "Sıçramak", "Süs", "Park"]
+    },
+    {
+      "anahtar": "Gazoz",
+      "yasakli": ["İçecek", "Asitli", "Şişe", "Kapa", "Soğuk"]
+    },
+    {
+      "anahtar": "Palyaço",
+      "yasakli": ["Sirk", "Komik", "Burun", "Makyaj", "Gülmek"]
+    },
+    {
+      "anahtar": "Merdiven",
+      "yasakli": ["Çıkmak", "Basamak", "Yüksek", "Ev", "Tırmanmak"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Tükenmez kalem",
+      "yasakli": ["Yazmak", "Mürekkep", "Dolma", "Uç", "Kağıt"]
+    },
+    {
+      "anahtar": "Kask",
+      "yasakli": ["Kafa", "Koruma", "Bisiklet", "İş", "Miğfer"]
+    },
+    {
+      "anahtar": "Mumya",
+      "yasakli": ["Mısır", "Sargı", "Tabut", "Eski", "Ceset"]
+    },
+    {
+      "anahtar": "Teleskop",
+      "yasakli": ["Yıldız", "Bakmak", "Uzak", "Gökbilim", "Büyüteç"]
+    },
+    {
+      "anahtar": "Sümen",
+      "yasakli": ["Para", "Çekmek", "Banka", "Hesap", "Havale"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Fırça",
+      "yasakli": ["Boya", "Saç", "Diş", "Temizlik", "Kıl"]
+    },
+    {
+      "anahtar": "Kızak",
+      "yasakli": ["Kar", "Kaymak", "Köpek", "Tepsi", "Kış"]
+    },
+    {
+      "anahtar": "Göktaşı",
+      "yasakli": ["Uzay", "Düşmek", "Gök", "Krater", "Meteor"]
+    },
+    {
+      "anahtar": "Tencere",
+      "yasakli": ["Pişirmek", "Kapak", "Tava", "Yemek", "Kaynatmak"]
+    },
+    {
+      "anahtar": "Pusula",
+      "yasakli": ["Yön", "Kuzey", "İbre", "Seyahat", "Manyetik"]
+    },
+    {
+      "anahtar": "Mikser",
+      "yasakli": ["Çırpmak", "Hamur", "Mutfak", "Blender", "Kablo"]
+    },
+    {
+      "anahtar": "Hortum",
+      "yasakli": ["Su", "Bahçe", "Tornado", "Esnek", "Sıkmak"]
+    },
+    {
+      "anahtar": "Çadır",
+      "yasakli": ["Kamp", "Kurma", "Bez", "Kazık", "Doğa"]
+    },
+    {
+      "anahtar": "Tepsi",
+      "yasakli": ["Servis", "Taşımak", "Yemek", "Kahvaltı", "Tutamak"]
+    },
+    {
+      "anahtar": "Sarkaç",
+      "yasakli": ["Sallanmak", "Saat", "Fizik", "Salıncak", "Hareket"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Fare",
+      "yasakli": ["Kedi", "Peynir", "Kuyruk", "Kemirme", "Bilgisayar"]
+    },
+    {
+      "anahtar": "Gökdelen",
+      "yasakli": ["Yüksek", "Bina", "Kat", "Şehir", "Asansör"]
+    },
+    {
+      "anahtar": "Priz",
+      "yasakli": ["Elektrik", "Fiş", "Duvara", "Takmak", "Dolmak"]
+    },
+    {
+      "anahtar": "Yıldız",
+      "yasakli": ["Gökyüzü", "Gece", "Parlak", "Takım", "Kaymak"]
+    },
+    {
+      "anahtar": "Salıncak",
+      "yasakli": ["Park", "Sallanmak", "İp", "Oturmak", "Çocuk"]
+    },
+    {
+      "anahtar": "Testere",
+      "yasakli": ["Kesmek", "Ağaç", "Diş", "Marangoz", "Testere"]
+    },
+    {
+      "anahtar": "Şövalye",
+      "yasakli": ["Ortaçağ", "Zırh", "Kılıç", "At", "Turnuva"]
+    },
+    {
+      "anahtar": "Fırın",
+      "yasakli": ["Pişirmek", "Sıcak", "Ekmek", "Isı", "Tepsi"]
+    },
+    {
+      "anahtar": "Dalgıç",
+      "yasakli": ["Deniz", "Derin", "Tüp", "Palet", "Balık"]
+    },
+    {
+      "anahtar": "Zil",
+      "yasakli": ["Ses", "Çalmak", "Okul", "Kapı", "Uyarı"]
+    },
+    {
+      "anahtar": "Mandalina",
+      "yasakli": ["Meyve", "Turuncu", "Kabuk", "Kış", "Portakal"]
+    },
+    {
+      "anahtar": "Köstebek",
+      "yasakli": ["Toprak", "Kazmak", "Hayvan", "Tünel", "Kör"]
+    },
+    {
+      "anahtar": "Akvaryum",
+      "yasakli": ["Balık", "Cam", "Su", "Evcil", "Kum"]
+    },
+    {
+      "anahtar": "Parşömen",
+      "yasakli": ["Kağıt", "Eski", "Yazı", "Deri", "Tarihi"]
+    },
+    {
+      "anahtar": "Sihirbaz",
+      "yasakli": ["Şapka", "Tavşan", "Hile", "Kart", "Asa"]
+    },
+    {
+      "anahtar": "Ankastre",
+      "yasakli": ["Mutfak", "Dolap", "Fırın", "Tasarruf", "Gömme"]
+    },
+    {
+      "anahtar": "Morse",
+      "yasakli": ["Kod", "Telsiz", "Nokta", "Çizgi", "SOS"]
+    },
+    {
+      "anahtar": "Paratoner",
+      "yasakli": ["Yıldırım", "Çatı", "Koruma", "Demir", "Elektrik"]
+    },
+    {
+      "anahtar": "Tornavida",
+      "yasakli": ["Vida", "Sıkıştırmak", "Alet", "Uç", "Döndürmek"]
+    },
+    {
+      "anahtar": "Sarkaç",
+      "yasakli": ["Sallanmak", "Saat", "Fizik", "Salıncak", "Hareket"]
+    },
+    {
+      "anahtar": "Kunduz",
+      "yasakli": ["Baraj", "Diş", "Ağaç", "Nehir", "Kemirme"]
+    },
+    {
+      "anahtar": "Gerdanlık",
+      "yasakli": ["Kolye", "Boyun", "Mücevher", "Altın", "İnci"]
+    },
+    {
+      "anahtar": "Raptiye",
+      "yasakli": ["Tutmak", "Pano", "Sabitlemek", "Küçük", "Delmek"]
+    },
+    {
+      "anahtar": "Yunus",
+      "yasakli": ["Balık", "Memeli", "Deniz", "Atlama", "Akvaryum"]
+    },
+    {
+      "anahtar": "Şaryo",
+      "yasakli": ["Araba", "Tekerlek", "Alt", "Sistem", "Kayış"]
+    },
+    {
+      "anahtar": "Fesleğen",
+      "yasakli": ["Bitki", "Koku", "Yemek", "Salata", "Tohum"]
+    },
+    {
+      "anahtar": "İstiridye",
+      "yasakli": ["Deniz", "Kabuk", "İnci", "Açmak", "Yemek"]
+    },
+    {
+      "anahtar": "Zımpara",
+      "yasakli": ["Pürüz", "Cila", "Kağıt", "Tahta", "Silmek"]
+    },
+    {
+      "anahtar": "Pervane",
+      "yasakli": ["Dönmek", "Rüzgar", "Helikopter", "Uçak", "Kanat"]
+    },
+    {
+      "anahtar": "Sümen",
+      "yasakli": ["Para", "Çekmek", "Banka", "Hesap", "Havale"]
+    },
+    {
+      "anahtar": "Krampon",
+      "yasakli": ["Futbol", "Ayakkabı", "Dik", "Spor", "Saha"]
+    }
+  ]
+}
