@@ -1,0 +1,1084 @@
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyyüphan ÇAKIR - Elektrik Elektronik Mühendisi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&family=Rubik:wght@400;500;700&display=swap');
+
+        :root {
+            --pacman-yellow: #ffcc00;
+            --pacman-dark-yellow: #e6b800;
+            --pikachu-yellow: #ffcb05;
+            --electric-blue: #00ffff;
+            --ghost-red: #ff0000;
+            --ghost-pink: #ffb8de;
+            --ghost-blue: #00ffde;
+            --ghost-orange: #ffb847;
+            --bg-color: #1a1a2e;
+            --text-color: #e6e6e6;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--pacman-yellow);
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .pixel-border {
+            position: relative;
+            border: 4px solid var(--pacman-yellow);
+            box-shadow: 0 0 0 4px var(--electric-blue), 
+                        inset 0 0 0 2px var(--electric-blue);
+        }
+
+        .pixel-btn {
+            font-family: 'Press Start 2P', cursive;
+            position: relative;
+            background-color: var(--pacman-yellow);
+            color: #000;
+            border: none;
+            box-shadow: 0 6px 0 var(--pacman-dark-yellow);
+            transition: all 0.1s;
+            text-transform: uppercase;
+        }
+
+        .pixel-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--pacman-dark-yellow);
+        }
+
+        .pixel-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+            pointer-events: none;
+        }
+
+        .electric-glow {
+            animation: electricGlow 2s infinite;
+        }
+
+        @keyframes electricGlow {
+            0%, 100% { 
+                text-shadow: 0 0 5px var(--electric-blue),
+                           0 0 10px var(--electric-blue),
+                           0 0 15px var(--electric-blue);
+            }
+            50% { 
+                text-shadow: 0 0 10px var(--electric-blue),
+                           0 0 20px var(--electric-blue),
+                           0 0 30px var(--electric-blue);
+            }
+        }
+
+        .lightning {
+            position: absolute;
+            background-color: var(--electric-blue);
+            opacity: 0;
+            z-index: 1;
+            filter: blur(1px);
+            animation: lightning 5s infinite;
+        }
+
+        @keyframes lightning {
+            0%, 100% { opacity: 0; }
+            98% { opacity: 0; }
+            99% { opacity: 0.8; }
+        }
+
+        .lightning:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            width: 2px;
+            height: 150px;
+            transform: rotate(45deg);
+            animation-delay: 0.5s;
+        }
+
+        .lightning:nth-child(2) {
+            top: 30%;
+            right: 10%;
+            width: 2px;
+            height: 100px;
+            transform: rotate(-30deg);
+            animation-delay: 2s;
+        }
+
+        .lightning:nth-child(3) {
+            bottom: 20%;
+            left: 15%;
+            width: 2px;
+            height: 120px;
+            transform: rotate(15deg);
+            animation-delay: 3.5s;
+        }
+
+        .dots-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--pacman-yellow);
+            opacity: 0.5;
+            animation: floatDot 15s infinite linear;
+        }
+
+        @keyframes floatDot {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .skill-bar {
+            height: 20px;
+            background-color: #2a2a4a;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--pacman-yellow);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--pacman-yellow), var(--electric-blue));
+            border-radius: 8px;
+            position: relative;
+            animation: fillBar 2s ease-out forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
+
+        @keyframes fillBar {
+            to { transform: scaleX(1); }
+        }
+
+        .skill-progress::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .project-card {
+            background-color: rgba(26, 26, 46, 0.8);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            transform: perspective(1000px) rotateX(0deg);
+        }
+
+        .project-card:hover {
+            transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.3);
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .form-input {
+            background-color: rgba(26, 26, 46, 0.8);
+            border: 2px solid var(--pacman-yellow);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+            outline: none;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(26, 26, 46, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                z-index: 50;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+            }
+            
+            .nav-link {
+                margin: 10px 0;
+            }
+        }
+
+        .logo-container {
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .language-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            background-color: var(--pacman-yellow);
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0 var(--pacman-dark-yellow);
+        }
+
+        .language-toggle:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 var(--pacman-dark-yellow);
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--pacman-yellow);
+            box-shadow: 0 0 0 4px var(--electric-blue), 0 0 15px rgba(255, 204, 0, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2a2a4a 0%, #1a1a2e 100%);
+            font-family: 'Bangers', cursive;
+            font-size: 72px;
+            color: var(--pacman-yellow);
+            text-shadow: 3px 3px 0 #000;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px var(--electric-blue), 0 0 20px rgba(0, 255, 255, 0.7);
+        }
+        
+        .profile-image .initials {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Game styles */
+        #game-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game-canvas {
+            border: 4px solid var(--pacman-yellow);
+            background-color: #000033;
+            box-shadow: 0 0 20px var(--electric-blue);
+        }
+
+        #game-instructions {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--pacman-yellow);
+            text-align: center;
+            margin-top: 20px;
+            max-width: 500px;
+        }
+
+        .game-btn {
+            font-family: 'Press Start 2P', cursive;
+            background-color: var(--pacman-yellow);
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 0 var(--pacman-dark-yellow);
+            transition: all 0.1s;
+        }
+
+        .game-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--pacman-dark-yellow);
+        }
+
+        /* Pacman animation */
+        .pacman {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ffcc00'/%3E%3Cpath d='M50,50 L95,25 A45,45 0 0,0 95,75 Z' fill='%231a1a2e'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: pacmanMove 10s linear infinite;
+            z-index: 5;
+        }
+
+        @keyframes pacmanMove {
+            0% { left: -60px; top: 70%; transform: scaleX(1); }
+            49% { transform: scaleX(1); }
+            50% { left: 100%; top: 70%; transform: scaleX(-1); }
+            99% { transform: scaleX(-1); }
+            100% { left: -60px; top: 70%; transform: scaleX(1); }
+        }
+
+        /* Pikachu jumping animation */
+        .pikachu-jump {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffcb05' d='M50,20c-16.5,0-30,13.5-30,30s13.5,30,30,30s30-13.5,30-30S66.5,20,50,20z'/%3E%3Ccircle fill='black' cx='40' cy='40' r='3'/%3E%3Ccircle fill='black' cx='60' cy='40' r='3'/%3E%3Cpath fill='red' d='M45,55c0,0,5,5,10,0'/%3E%3Cpath fill='%23c7a008' d='M20,45l-10-5l5,10L20,45z M80,45l10-5l-5,10L80,45z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: pikachuJump 7s ease-in-out infinite;
+            z-index: 5;
+        }
+
+        @keyframes pikachuJump {
+            0%, 100% { bottom: 20px; right: 5%; }
+            50% { bottom: 120px; right: 15%; }
+        }
+
+        /* Electric circles */
+        .electric-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--electric-blue) 0%, transparent 70%);
+            opacity: 0;
+            z-index: 1;
+            animation: pulseCircle 4s infinite;
+        }
+
+        @keyframes pulseCircle {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+        }
+
+        .electric-circle:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .electric-circle:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: 10%;
+            right: 5%;
+            animation-delay: 1s;
+        }
+
+        .electric-circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        /* Nav link hover effect */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--pacman-yellow);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-link:hover {
+            color: var(--pacman-yellow) !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Game section removed - site now opens directly -->
+    
+    <!-- Electric elements -->
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    <div class="lightning"></div>
+    
+    <div class="electric-circle"></div>
+    <div class="electric-circle"></div>
+    <div class="electric-circle"></div>
+    
+    <div class="dots-container">
+        <div class="dot" style="left: 10%; animation-duration: 20s;"></div>
+        <div class="dot" style="left: 30%; animation-duration: 15s; animation-delay: 2s;"></div>
+        <div class="dot" style="left: 50%; animation-duration: 18s; animation-delay: 5s;"></div>
+        <div class="dot" style="left: 70%; animation-duration: 22s; animation-delay: 3s;"></div>
+        <div class="dot" style="left: 90%; animation-duration: 17s; animation-delay: 7s;"></div>
+    </div>
+    
+    <div class="pacman"></div>
+    <div class="pikachu-jump"></div>
+
+    <button class="language-toggle pixel-btn px-3 py-1 rounded-sm text-sm">
+        EN / TR
+    </button>
+    
+    <!-- Cute Computer Follow Cursor -->
+    <div class="fixed bottom-0 right-0 w-32 h-32 z-50 pointer-events-none">
+        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+        <spline-viewer url="https://prod.spline.design/Jc8FBSTRGy7mLeSV/scene.splinecode"></spline-viewer>
+    </div>
+    
+    <header class="fixed top-0 left-0 w-full bg-opacity-80 backdrop-blur-sm z-40 border-b-4 border-pacman-yellow" style="background-color: rgba(26, 26, 46, 0.8);">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-pacman-yellow electric-glow">E<span class="text-electric-blue">Ç</span></div>
+            
+            <button class="mobile-menu-btn text-pacman-yellow focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            
+            <nav class="nav-links hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="home">Ana Sayfa</a>
+                <a href="#about" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="about">Hakkımda</a>
+                <a href="#skills" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="skills">Yetenekler</a>
+                <a href="#projects" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="projects">Projeler</a>
+                <a href="#education" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="education">Eğitim</a>
+                <a href="#contact" class="nav-link text-white hover:text-pacman-yellow transition-colors" data-tr="contact">İletişim</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center relative pt-20">
+            <div class="container mx-auto px-4 py-20 text-center">
+                <div class="flex flex-col md:flex-row items-center justify-center mb-8">
+                    <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                        <h1 class="text-5xl md:text-7xl mb-4 electric-glow">Eyyüphan ÇAKIR</h1>
+                        <p class="text-xl md:text-2xl mb-8 text-electric-blue" data-tr="profession">Elektrik Elektronik Mühendisi</p>
+                        <div class="w-20 h-1 bg-pacman-yellow mx-auto mb-8"></div>
+                        <p class="max-w-lg mx-auto text-white mb-12" data-tr="tagline">Elektrik gücü ve teknoloji ile projeler geliştiriyorum!</p>
+                        <a href="#about" class="pixel-btn px-8 py-3 rounded-sm shadow-lg inline-block" data-tr="enter-btn">
+                            Hemen Keşfet
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2 h-64 md:h-96">
+                        <!-- Greeting Robot Animation -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+                        <spline-viewer url="https://prod.spline.design/rrm2S06f6iQjcuPm/scene.splinecode"></spline-viewer>
+                    </div>
+                </div>
+            </div>
+            
+            <svg class="absolute bottom-0 left-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#1a1a2e" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-20" style="background-color: #1a1a2e;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl mb-12 text-center" data-tr="about-title">Hakkımda</h2>
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 flex justify-center">
+                        <div class="profile-image">
+                            <div class="initials">EÇ</div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <p class="text-white mb-6" data-tr="about-p1">
+                            Teknoloji kullanarak yenilikçi çözümler üretme tutkusuna sahip bir Elektrik Elektronik Mühendisiyim. Uzmanlığım mikro işlemcilerden ve gömülü sistemlerden mobil uygulama geliştirmeye kadar uzanmaktadır.
+                        </p>
+                        <p class="text-white mb-6" data-tr="about-p2">
+                            Elektrik mühendisliği prensiplerinde güçlü bir temele ve programlamaya yoğun bir ilgiye sahip olarak, donanım ve yazılım arasında köprü kuran, gerçek dünya problemleri için pratik çözümler geliştiriyorum.
+                        </p>
+                        <p class="text-white" data-tr="about-p3">
+                            Çalışmalarım, teknolojiyi günlük hayatta daha erişilebilir ve kullanışlı hale getiren gömülü sistemler, IoT cihazları ve mobil uygulamalar üzerine odaklanmaktadır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20" style="background-color: #16162a;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl mb-12 text-center" data-tr="skills-title">Teknik Yetenekler</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center mb-12">
+                    <div class="w-full md:w-1/3 h-64 mb-8 md:mb-0">
+                        <!-- Lightning Bulb Animation -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+                        <spline-viewer url="https://prod.spline.design/OFtGHMu182gTM8dU/scene.splinecode"></spline-viewer>
+                    </div>
+                    <div class="w-full md:w-2/3 md:pl-8">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white" data-tr="skill-mobile">Mobil Programlama</span>
+                                    <span class="text-pacman-yellow">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white">MATLAB</span>
+                                    <span class="text-pacman-yellow">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white">Arduino</span>
+                                    <span class="text-pacman-yellow">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-white" data-tr="skill-micro">Mikro İşlemciler</span>
+                                    <span class="text-pacman-yellow">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+                    <div class="skill-icon p-4 bg-opacity-50 rounded-lg text-center hover:bg-pacman-yellow hover:bg-opacity-20 transition-all pixel-border">
+                        <i class="fas fa-microchip text-4xl text-electric-blue mb-3"></i>
+                        <p class="text-white" data-tr="skill-embedded">Gömülü Sistemler</p>
+                    </div>
+                    <div class="skill-icon p-4 bg-opacity-50 rounded-lg text-center hover:bg-pacman-yellow hover:bg-opacity-20 transition-all pixel-border">
+                        <i class="fas fa-mobile-alt text-4xl text-electric-blue mb-3"></i>
+                        <p class="text-white" data-tr="skill-mobile-dev">Mobil Geliştirme</p>
+                    </div>
+                    <div class="skill-icon p-4 bg-opacity-50 rounded-lg text-center hover:bg-pacman-yellow hover:bg-opacity-20 transition-all pixel-border">
+                        <i class="fas fa-code text-4xl text-electric-blue mb-3"></i>
+                        <p class="text-white" data-tr="skill-programming">Programlama</p>
+                    </div>
+                    <div class="skill-icon p-4 bg-opacity-50 rounded-lg text-center hover:bg-pacman-yellow hover:bg-opacity-20 transition-all pixel-border">
+                        <i class="fas fa-cogs text-4xl text-electric-blue mb-3"></i>
+                        <p class="text-white" data-tr="skill-hardware">Donanım Tasarımı</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects" class="py-20" style="background-color: #1a1a2e;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl mb-12 text-center" data-tr="projects-title">Öne Çıkan Projeler</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center mb-12">
+                    <div class="w-full md:w-1/3 h-64 mb-8 md:mb-0 order-2 md:order-1">
+                        <!-- Tesla Coil Animation -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+                        <spline-viewer url="https://prod.spline.design/9W9PfBN1NBEHJk-i/scene.splinecode"></spline-viewer>
+                    </div>
+                    <div class="w-full md:w-2/3 md:pr-8 order-1 md:order-2">
+                        <h3 class="text-2xl mb-6 text-pacman-yellow text-center md:text-left" data-tr="featured-project">Öne Çıkan Proje: Tesla Bobini</h3>
+                        <p class="text-white mb-6">
+                            Yüksek voltaj ve kablosuz elektrik iletimi deneylerinde kullanılmak üzere bir Tesla bobini tasarladım ve inşa ettim. Bu proje, elektromanyetik teori ve yüksek frekanslı devre tasarımı konusundaki bilgilerimi uygulamama olanak sağladı.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Yüksek Voltaj</span>
+                            <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Elektromanyetik</span>
+                            <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Rezonans Devreleri</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <div class="project-card rounded-lg overflow-hidden relative pixel-border">
+                        <div class="p-6">
+                            <h3 class="text-xl mb-3" data-tr="project1-title">Görme Engelliler için Akıllı Gözlük</h3>
+                            <p class="text-gray-300 mb-4" data-tr="project1-desc">
+                                Görme engelli bireylerin çevrelerinde gezinmelerine ve nesneleri tanımalarına yardımcı olmak için ESP32 ve yapay zeka kullanarak akıllı gözlük geliştirdim.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">ESP32</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="ai">Yapay Zeka</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="cv">Bilgisayarlı Görü</span>
+                            </div>
+                            <button class="pixel-btn px-4 py-2 rounded-sm text-sm" data-tr="view-details">Detayları Gör</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card rounded-lg overflow-hidden relative pixel-border">
+                        <div class="p-6">
+                            <h3 class="text-xl mb-3" data-tr="project2-title">Kotlin Compose Hesap Makinesi</h3>
+                            <p class="text-gray-300 mb-4" data-tr="project2-desc">
+                                Temiz bir kullanıcı arayüzü ve gelişmiş matematiksel fonksiyonlar içeren, Kotlin ve Jetpack Compose ile oluşturulmuş modern bir hesap makinesi uygulaması.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Kotlin</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Jetpack Compose</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Android</span>
+                            </div>
+                            <button class="pixel-btn px-4 py-2 rounded-sm text-sm" data-tr="view-details">Detayları Gör</button>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card rounded-lg overflow-hidden relative pixel-border">
+                        <div class="p-6">
+                            <h3 class="text-xl mb-3" data-tr="project3-title">İletim Hattı Parametreleri Hesaplama</h3>
+                            <p class="text-gray-300 mb-4" data-tr="project3-desc">
+                                Güç sistemi mühendisliği uygulamaları için elektrik iletim hattı parametrelerini hesaplamak ve analiz etmek için MATLAB tabanlı bir araç.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">MATLAB</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="power-systems">Güç Sistemleri</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="electrical-eng">Elektrik Mühendisliği</span>
+                            </div>
+                            <a href="https://github.com/Eypan439/Medium_Transmission_Line_Calculator" target="_blank" class="pixel-btn px-4 py-2 rounded-sm text-sm" data-tr="view-github">GitHub'da Gör</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card rounded-lg overflow-hidden relative pixel-border">
+                        <div class="p-6">
+                            <h3 class="text-xl mb-3" data-tr="project4-title">SEDC Motor Hız Kontrolü</h3>
+                            <p class="text-gray-300 mb-4" data-tr="project4-desc">
+                                Arduino ve güç elektroniği kullanarak ayrı uyartımlı bir DC motor için hız kontrol sistemi tasarladım ve uyguladım.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded">Arduino</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="motor-control">Motor Kontrolü</span>
+                                <span class="bg-pacman-yellow bg-opacity-30 text-electric-blue text-xs px-2 py-1 rounded" data-tr="power-electronics">Güç Elektroniği</span>
+                            </div>
+                            <button class="pixel-btn px-4 py-2 rounded-sm text-sm" data-tr="view-details">Detayları Gör</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="py-20" style="background-color: #16162a;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl mb-12 text-center" data-tr="education-title">Eğitim</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center mb-12">
+                    <div class="w-full md:w-1/2 h-64 mb-8 md:mb-0">
+                        <!-- Electric Car Animation -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+                        <spline-viewer url="https://prod.spline.design/2tIA3Dq2ZGhaXD4v/scene.splinecode"></spline-viewer>
+                    </div>
+                    <div class="w-full md:w-1/2 md:pl-8">
+                        <h3 class="text-2xl mb-6 text-pacman-yellow" data-tr="research-focus">Araştırma Odağım</h3>
+                        <p class="text-white mb-6">
+                            Yüksek lisans çalışmalarımda, elektrikli araçlar için verimli enerji yönetim sistemleri ve akıllı şarj çözümleri üzerine araştırmalar yapıyorum. Sürdürülebilir ulaşım teknolojilerinin geliştirilmesine katkıda bulunmayı hedefliyorum.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-opacity-60 p-6 rounded-lg pixel-border" style="background-color: rgba(26, 26, 46, 0.6);">
+                        <div class="flex flex-col md:flex-row items-center gap-4 mb-4">
+                            <div class="logo-container w-24 h-24 flex items-center justify-center bg-white rounded-full p-2">
+                                <img src="https://www.omu.edu.tr/sites/default/files/kamuduyurular/Giresun%20%C3%9Cniversitesi%20Mezunlar%C4%B1%20Anketi/giresun_universitesi_logo.png" alt="Giresun University Logo" class="max-w-full max-h-full">
+                            </div>
+                            <div>
+                                <h3 class="text-xl mb-1" data-tr="uni-giresun">Giresun Üniversitesi</h3>
+                                <p class="text-electric-blue" data-tr="masters">Yüksek Lisans</p>
+                                <p class="text-pacman-yellow">2025 - ...</p>
+                            </div>
+                        </div>
+                        <p class="text-white" data-tr="edu-giresun-desc">
+                            Gömülü sistemler ve IoT uygulamalarına odaklanarak Elektrik ve Elektronik Mühendisliği alanında Yüksek Lisans eğitimime devam ediyorum.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-opacity-60 p-6 rounded-lg pixel-border" style="background-color: rgba(26, 26, 46, 0.6);">
+                        <div class="flex flex-col md:flex-row items-center gap-4 mb-4">
+                            <div class="logo-container w-24 h-24 flex items-center justify-center bg-white rounded-full p-2">
+                                <img src="https://i.pinimg.com/originals/64/09/5a/64095a0fc5f56c791ae2442aa2a4a958.png" alt="Karadeniz Technical University Logo" class="max-w-full max-h-full">
+                            </div>
+                            <div>
+                                <h3 class="text-xl mb-1" data-tr="uni-ktu">Karadeniz Teknik Üniversitesi</h3>
+                                <p class="text-electric-blue" data-tr="bachelors">Lisans</p>
+                                <p class="text-pacman-yellow">2018 - 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-white" data-tr="edu-ktu-desc">
+                            Gömülü sistemler ve kontrol mühendisliği odaklı Elektrik ve Elektronik Mühendisliği bölümünden lisans derecesi ile mezun oldum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-20" style="background-color: #1a1a2e;">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl mb-12 text-center" data-tr="contact-title">İletişim</h2>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center mb-12">
+                    <div class="w-full md:w-1/3 h-64 mb-8 md:mb-0">
+                        <!-- Battery Charger Animation -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.27/build/spline-viewer.js"></script>
+                        <spline-viewer url="https://prod.spline.design/cj3MPpFChxhTWFXH/scene.splinecode"></spline-viewer>
+                    </div>
+                    <div class="w-full md:w-2/3 md:pl-8">
+                        <p class="text-white mb-6 text-center md:text-left">
+                            Elektrik ve elektronik projeleriniz için işbirliği yapmak, teknik sorularınızı yanıtlamak veya sadece merhaba demek için benimle iletişime geçebilirsiniz. Mesajlarınıza en kısa sürede dönüş yapacağım.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <div>
+                        <h3 class="text-2xl mb-6 text-pacman-yellow" data-tr="get-in-touch">İletişime Geçin</h3>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-black"></i>
+                            </div>
+                            <a href="mailto:eypan439@yaani.com" class="text-white hover:text-pacman-yellow transition-colors">eypan439@yaani.com</a>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center mr-4">
+                                <i class="fab fa-github text-black"></i>
+                            </div>
+                            <a href="https://github.com/Eypan439" target="_blank" class="text-white hover:text-pacman-yellow transition-colors">github.com/Eypan439</a>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center mr-4">
+                                <i class="fab fa-linkedin text-black"></i>
+                            </div>
+                            <a href="https://linkedin.com/in/eyyüphan-çakır-261473190" target="_blank" class="text-white hover:text-pacman-yellow transition-colors">linkedin.com/in/eyyüphan-çakır-261473190</a>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-xl mb-4 text-pacman-yellow" data-tr="follow-me">Beni Takip Edin</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center hover:bg-pacman-dark-yellow transition-colors">
+                                    <i class="fab fa-twitter text-black"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center hover:bg-pacman-dark-yellow transition-colors">
+                                    <i class="fab fa-instagram text-black"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-pacman-yellow flex items-center justify-center hover:bg-pacman-dark-yellow transition-colors">
+                                    <i class="fab fa-facebook text-black"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl mb-6 text-pacman-yellow" data-tr="send-message">Mesaj Gönder</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-white mb-2" data-tr="name">İsim</label>
+                                <input type="text" id="name" class="form-input w-full rounded-sm px-4 py-2 focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-white mb-2" data-tr="email">E-posta</label>
+                                <input type="email" id="email" class="form-input w-full rounded-sm px-4 py-2 focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-white mb-2" data-tr="message">Mesaj</label>
+                                <textarea id="message" rows="5" class="form-input w-full rounded-sm px-4 py-2 focus:outline-none" required></textarea>
+                            </div>
+                            <button type="submit" class="pixel-btn px-6 py-3 rounded-sm w-full" data-tr="send-btn">Mesaj Gönder</button>
+                        </form>
+                        <div id="form-message" class="mt-4 text-center hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mini Game Section -->
+        <section id="mini-game" class="py-20" style="background-color: #16162a;">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl md:text-5xl mb-6 text-center" data-tr="game-title">Pac-Man Mini Oyunu</h2>
+                <p class="text-white mb-8 max-w-2xl mx-auto" data-tr="game-desc">Biraz eğlenmek ister misin? Aşağıdaki butona tıklayarak Pac-Man oyununu oynayabilirsin!</p>
+                <button id="play-again" class="pixel-btn px-8 py-4 rounded-sm text-lg" data-tr="play-game">OYUNU OYNA</button>
+                <p class="text-electric-blue mt-4 text-sm" data-tr="coming-soon">Yakında gelecek!</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="py-8 border-t-4 border-pacman-yellow" style="background-color: #1a1a2e;">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-white">&copy; 2023 Eyyüphan ÇAKIR. <span data-tr="rights">Tüm hakları saklıdır.</span></p>
+            <p class="text-electric-blue mt-2 text-sm" data-tr="profession-footer">Elektrik Elektronik Mühendisi</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23ffcc00'/%3E%3Cpath d='M50,50 L95,25 A45,45 0 0,0 95,75 Z' fill='%231a1a2e'/%3E%3C/svg%3E" alt="Pacman" class="w-10 h-10">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffcb05' d='M50,20c-16.5,0-30,13.5-30,30s13.5,30,30,30s30-13.5,30-30S66.5,20,50,20z'/%3E%3Ccircle fill='black' cx='40' cy='40' r='3'/%3E%3Ccircle fill='black' cx='60' cy='40' r='3'/%3E%3Cpath fill='red' d='M45,55c0,0,5,5,10,0'/%3E%3Cpath fill='%23c7a008' d='M20,45l-10-5l5,10L20,45z M80,45l10-5l-5,10L80,45z'/%3E%3C/svg%3E" alt="Pikachu" class="w-10 h-10">
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    navLinks.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transform = 'scaleX(1)';
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        skillBars.forEach(bar => {
+            observer.observe(bar);
+        });
+        
+        // Contact form handling
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Demo form submission
+            const currentLang = document.documentElement.lang;
+            formMessage.textContent = currentLang === 'tr' ? 'Mesaj başarıyla gönderildi! (Demo)' : 'Message sent successfully! (Demo)';
+            formMessage.classList.remove('hidden', 'text-red-500');
+            formMessage.classList.add('text-green-500');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 3000);
+        });
+
+        // Language toggle
+        const languageToggle = document.querySelector('.language-toggle');
+        let currentLanguage = 'tr'; // Default language is Turkish
+
+        // Translation dictionary
+        const translations = {
+            // Navigation
+            'home': { 'tr': 'Ana Sayfa', 'en': 'Home' },
+            'about': { 'tr': 'Hakkımda', 'en': 'About' },
+            'skills': { 'tr': 'Yetenekler', 'en': 'Skills' },
+            'projects': { 'tr': 'Projeler', 'en': 'Projects' },
+            'education': { 'tr': 'Eğitim', 'en': 'Education' },
+            'contact': { 'tr': 'İletişim', 'en': 'Contact' },
+            
+            // Hero section
+            'profession': { 'tr': 'Elektrik Elektronik Mühendisi', 'en': 'Electrical Electronics Engineer' },
+            'tagline': { 'tr': 'Elektrik gücü ve teknoloji ile projeler geliştiriyorum!', 'en': 'Developing projects with electric power and technology!' },
+            'enter-btn': { 'tr': 'Hemen Keşfet', 'en': 'Explore Now' },
+            
+            // About section
+            'about-title': { 'tr': 'Hakkımda', 'en': 'About Me' },
+            'about-p1': { 'tr': 'Teknoloji kullanarak yenilikçi çözümler üretme tutkusuna sahip bir Elektrik Elektronik Mühendisiyim. Uzmanlığım mikro işlemcilerden ve gömülü sistemlerden mobil uygulama geliştirmeye kadar uzanmaktadır.', 'en': 'I am an Electrical Electronics Engineer with a passion for creating innovative solutions using technology. My expertise spans from microprocessors and embedded systems to mobile application development.' },
+            'about-p2': { 'tr': 'Elektrik mühendisliği prensiplerinde güçlü bir temele ve programlamaya yoğun bir ilgiye sahip olarak, donanım ve yazılım arasında köprü kuran, gerçek dünya problemleri için pratik çözümler geliştiriyorum.', 'en': 'With a strong foundation in electrical engineering principles and a keen interest in programming, I develop projects that bridge the gap between hardware and software, creating practical solutions for real-world problems.' },
+            'about-p3': { 'tr': 'Çalışmalarım, teknolojiyi günlük hayatta daha erişilebilir ve kullanışlı hale getiren gömülü sistemler, IoT cihazları ve mobil uygulamalar üzerine odaklanmaktadır.', 'en': 'My work focuses on embedded systems, IoT devices, and mobile applications that make technology more accessible and useful in everyday life.' },
+            
+            // Skills section
+            'skills-title': { 'tr': 'Teknik Yetenekler', 'en': 'Technical Skills' },
+            'skill-mobile': { 'tr': 'Mobil Programlama', 'en': 'Mobile Programming' },
+            'skill-micro': { 'tr': 'Mikro İşlemciler', 'en': 'Microprocessors' },
+            'skill-embedded': { 'tr': 'Gömülü Sistemler', 'en': 'Embedded Systems' },
+            'skill-mobile-dev': { 'tr': 'Mobil Geliştirme', 'en': 'Mobile Development' },
+            'skill-programming': { 'tr': 'Programlama', 'en': 'Programming' },
+            'skill-hardware': { 'tr': 'Donanım Tasarımı', 'en': 'Hardware Design' },
+            
+            // Projects section
+            'projects-title': { 'tr': 'Öne Çıkan Projeler', 'en': 'Featured Projects' },
+            'featured-project': { 'tr': 'Öne Çıkan Proje: Tesla Bobini', 'en': 'Featured Project: Tesla Coil' },
+            'project1-title': { 'tr': 'Görme Engelliler için Akıllı Gözlük', 'en': 'Smart Glasses for the Visually Impaired' },
+            'project1-desc': { 'tr': 'Görme engelli bireylerin çevrelerinde gezinmelerine ve nesneleri tanımalarına yardımcı olmak için ESP32 ve yapay zeka kullanarak akıllı gözlük geliştirdim.', 'en': 'Developed smart glasses using ESP32 and AI to assist visually impaired individuals in navigating their environment and recognizing objects.' },
+            'project2-title': { 'tr': 'Kotlin Compose Hesap Makinesi', 'en': 'Kotlin Compose Calculator' },
+            'project2-desc': { 'tr': 'Temiz bir kullanıcı arayüzü ve gelişmiş matematiksel fonksiyonlar içeren, Kotlin ve Jetpack Compose ile oluşturulmuş modern bir hesap makinesi uygulaması.', 'en': 'A modern calculator application built with Kotlin and Jetpack Compose, featuring a clean UI and advanced mathematical functions.' },
+            'project3-title': { 'tr': 'İletim Hattı Parametreleri Hesaplama', 'en': 'Transmission Line Parameters Calculation' },
+            'project3-desc': { 'tr': 'Güç sistemi mühendisliği uygulamaları için elektrik iletim hattı parametrelerini hesaplamak ve analiz etmek için MATLAB tabanlı bir araç.', 'en': 'A MATLAB-based tool for calculating and analyzing electrical transmission line parameters for power system engineering applications.' },
+            'project4-title': { 'tr': 'SEDC Motor Hız Kontrolü', 'en': 'SEDC Motor Speed Control' },
+            'project4-desc': { 'tr': 'Arduino ve güç elektroniği kullanarak ayrı uyartımlı bir DC motor için hız kontrol sistemi tasarladım ve uyguladım.', 'en': 'Designed and implemented a speed control system for a separately excited DC motor using Arduino and power electronics.' },
+            'ai': { 'tr': 'Yapay Zeka', 'en': 'AI' },
+            'cv': { 'tr': 'Bilgisayarlı Görü', 'en': 'Computer Vision' },
+            'power-systems': { 'tr': 'Güç Sistemleri', 'en': 'Power Systems' },
+            'electrical-eng': { 'tr': 'Elektrik Mühendisliği', 'en': 'Electrical Engineering' },
+            'motor-control': { 'tr': 'Motor Kontrolü', 'en': 'Motor Control' },
+            'power-electronics': { 'tr': 'Güç Elektroniği', 'en': 'Power Electronics' },
+            'view-details': { 'tr': 'Detayları Gör', 'en': 'View Details' },
+            'view-github': { 'tr': 'GitHub\'da Gör', 'en': 'View on GitHub' },
+            
+            // Education section
+            'education-title': { 'tr': 'Eğitim', 'en': 'Education' },
+            'research-focus': { 'tr': 'Araştırma Odağım', 'en': 'My Research Focus' },
+            'uni-giresun': { 'tr': 'Giresun Üniversitesi', 'en': 'Giresun University' },
+            'uni-ktu': { 'tr': 'Karadeniz Teknik Üniversitesi', 'en': 'Karadeniz Technical University' },
+            'masters': { 'tr': 'Yüksek Lisans', 'en': 'Master\'s Degree' },
+            'bachelors': { 'tr': 'Lisans', 'en': 'Bachelor\'s Degree' },
+            'edu-giresun-desc': { 'tr': 'Gömülü sistemler ve IoT uygulamalarına odaklanarak Elektrik ve Elektronik Mühendisliği alanında Yüksek Lisans eğitimime devam ediyorum.', 'en': 'Currently pursuing a Master\'s degree in Electrical and Electronics Engineering, focusing on embedded systems and IoT applications.' },
+            'edu-ktu-desc': { 'tr': 'Gömülü sistemler ve kontrol mühendisliği odaklı Elektrik ve Elektronik Mühendisliği bölümünden lisans derecesi ile mezun oldum.', 'en': 'Graduated with a Bachelor\'s degree in Electrical and Electronics Engineering, with a focus on embedded systems and control engineering.' },
+            
+            // Contact section
+            'contact-title': { 'tr': 'İletişim', 'en': 'Contact Me' },
+            'get-in-touch': { 'tr': 'İletişime Geçin', 'en': 'Get In Touch' },
+            'follow-me': { 'tr': 'Beni Takip Edin', 'en': 'Follow Me' },
+            'send-message': { 'tr': 'Mesaj Gönder', 'en': 'Send Message' },
+            'name': { 'tr': 'İsim', 'en': 'Name' },
+            'email': { 'tr': 'E-posta', 'en': 'Email' },
+            'message': { 'tr': 'Mesaj', 'en': 'Message' },
+            'send-btn': { 'tr': 'Mesaj Gönder', 'en': 'Send Message' },
+            
+            // Game section
+            'game-title': { 'tr': 'Pac-Man Mini Oyunu', 'en': 'Pac-Man Mini Game' },
+            'game-desc': { 'tr': 'Biraz eğlenmek ister misin? Aşağıdaki butona tıklayarak Pac-Man oyununu oynayabilirsin!', 'en': 'Want to have some fun? Click the button below to play the Pac-Man game!' },
+            'play-game': { 'tr': 'OYUNU OYNA', 'en': 'PLAY GAME' },
+            'coming-soon': { 'tr': 'Yakında gelecek!', 'en': 'Coming soon!' },
+            
+            // Footer
+            'rights': { 'tr': 'Tüm hakları saklıdır.', 'en': 'All rights reserved.' },
+            'profession-footer': { 'tr': 'Elektrik Elektronik Mühendisi', 'en': 'Electrical Electronics Engineer' }
+        };
+
+        // Function to change language
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            currentLanguage = lang;
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-tr]').forEach(element => {
+                const key = element.getAttribute('data-tr');
+                if (translations[key] && translations[key][lang]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[key][lang];
+                    } else {
+                        element.textContent = translations[key][lang];
+                    }
+                }
+            });
+        }
+
+        // Language toggle button click handler
+        languageToggle.addEventListener('click', () => {
+            const newLang = currentLanguage === 'tr' ? 'en' : 'tr';
+            changeLanguage(newLang);
+        });
+        
+        // Pac-Man Game - Only for the mini-game section
+        const playAgainBtn = document.getElementById('play-again');
+        
+        // Game initialization will happen when user clicks "Play Game" button
+        playAgainBtn.addEventListener('click', () => {
+            alert('Pac-Man mini oyunu yakında gelecek!');
+        });
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95e6997303010d26',t:'MTc1MjM4NjgzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
