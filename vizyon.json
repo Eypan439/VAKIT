@@ -1,0 +1,34 @@
+[
+  {
+    "tarih_araligi": "14–18 Temmuz",
+    "film": "Vanilla Sky",
+    "poster": "https://i.pinimg.com/736x/0e/da/28/0eda282a47343257f25e63cfe0ab0e60.jpg",
+    "katilimcilar": [
+      {"isim": "Güneş İlhaner", "yorum": "", "puan": ""},
+      {"isim": "Zeynep Karataş", "yorum": "", "puan": ""},
+      {"isim": "Ravzanur Karacan", "yorum": "", "puan": ""},
+      {"isim": "Beyza Erdemir", "yorum": "", "puan": ""},
+      {"isim": "Dilbeste Erdoğan", "yorum": "", "puan": ""},
+      {"isim": "Berfin Naz Zengin", "yorum": "", "puan": ""},
+      {"isim": "Arda Keskinsoy", "yorum": "", "puan": ""},
+      {"isim": "Emir Batuhan Bütün", "yorum": "", "puan": ""},
+      {"isim": "Meryem Rana Gürbener", "yorum": "", "puan": ""},
+      {"isim": "Beyza Uysal", "yorum": "", "puan": ""}
+    ]
+  },
+  {
+    "tarih_araligi": "21–25 Temmuz",
+    "film": "Mona Lisa Smile",
+    "poster": "https://i.pinimg.com/736x/1f/28/d2/1f28d29cd2bca5acfc268d0268f8e447.jpg",
+    "katilimcilar": [
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""},
+      {"isim": "", "yorum": "", "puan": ""}
+    ]
+  }
+]
